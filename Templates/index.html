@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Image Classification </title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top left, #1b2735, #090a0f);
+            overflow: hidden;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* LEFT PANEL */
+        .left-panel {
+            width: 20%;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        .dev-img {
+            width: 80%;
+            height:200px;
+            border-radius: 20px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .left-panel h2 {
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .left-panel ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            line-height: 1.7;
+        }
+
+        /* CENTER PANEL */
+        .center-panel {
+            width: 40%;
+            padding: 30px;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.10);
+            overflow-y: auto;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        .center-panel h2,
+        .center-panel label,
+        .center-panel p {
+            font-size: 20px !important;
+        }
+
+        /* CLASS LIST POPUP */
+        .blink-btn {
+            padding: 14px 24px;
+            background: linear-gradient(90deg, #ffdd00, #ff9900);
+            border: none;
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+            cursor: pointer;
+            border-radius: 35px;
+            box-shadow: 0 0 15px rgba(255, 200, 0, 0.8),
+                        0 0 30px rgba(255, 150, 0, 0.6);
+            animation: blink 1.3s infinite ease-in-out;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .blink-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(255, 220, 0, 1),
+                0 0 40px rgba(255, 160, 0, 0.9);
+        }
+
+        /* Smooth blink effect */
+        @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0.65; }
+        100% { opacity: 1; }
+        }
+
+        /* SHOW CLASSES POPUP – FIXED VISIBILITY */
+        #classListBox {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 30px;
+            width: 80%;
+            max-height: 350px;
+            overflow-y: auto;
+
+            /* NEW BACKGROUND FOR HIGH VISIBILITY */
+            background: rgba(0, 0, 0, 0.78); /* Dark Black Transparent */
+            backdrop-filter: blur(8px);
+
+            border: 2px solid #ffcc33;
+            padding: 18px;
+            border-radius: 18px;
+            z-index: 999;
+
+            /* Better shadow */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.7);
+        }
+
+        /* CLASS TEXT HIGH VISIBILITY */
+        #classListBox li {
+            padding: 10px 5px;
+            font-size: 19px;
+
+            /* Bright white with glow */
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255,255,255,0.9);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            font-weight: 600;
+        }
+
+
+        /* Upload Box */
+        .upload-box {
+            margin-top: 25px;
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .upload-warning {
+            color: #ffeb3b;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* MODEL SELECTION – NEW DESIGN */
+        .model-box {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .model-option {
+            padding: 15px 18px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .model-option:hover {
+            transform: scale(1.03);
+            border-color: #ff9800;
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .model-option input {
+            transform: scale(1.4);
+            margin-right: 18px;
+        }
+
+        .predict-btn {
+            margin-top: 25px;
+            padding: 15px;
+            width: 100%;
+            background: #ff5722;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+
+        .predict-btn:hover {
+            transform: translateY(-4px);
+        }
+
+        /* RIGHT PANEL */
+        .right-panel {
+            width: 40%;
+            padding: 30px;
+            overflow-y: auto;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        .result-title {
+            font-size: 26px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ff9800;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .go-back {
+            margin-top: 25px;
+            padding: 12px;
+            background: #222;
+            border: none;
+            color: white;
+            width: 100%;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        img.result-img {
+            border-radius: 15px;
+            border: 3px solid #ff9800;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <img  src="/static/uploads/IMAGE.jpg" class="dev-img">
+        <h2>Data Scientist</h2>
+        <p><b>Name:</b> P.Naveen Kumar</p>
+        <p><b>Email:</b>puppalanaveenkumar11@gmail.com</p>
+
+        <h3 style="margin-top:20px;">Skills</h3>
+        <ul>
+            <li>Python</li>
+            <li>Deep Learning</li>
+            <li>Machine Learning</li>
+            <li>Html</li>
+            <li>Flask</li>
+        </ul>
+    </div>
+
+
+    <!-- CENTER PANEL -->
+    <div class="center-panel">
+
+        <button class="blink-btn" onclick="toggleClasses()">📚  Show Classes</button>
+
+        <div id="classListBox">
+            <ul>
+                {% for c in classes %}
+                <li>{{ c }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <script>
+            function toggleClasses() {
+                const box = document.getElementById("classListBox");
+                box.style.display = (box.style.display === "block") ? "none" : "block";
+            }
+            document.addEventListener("click", function(event) {
+                const box = document.getElementById("classListBox");
+                const btn = document.querySelector(".blink-btn");
+                if (!box.contains(event.target) && !btn.contains(event.target)) {
+                    box.style.display = "none";
+                }
+            });
+        </script>
+
+        <!-- Upload Section -->
+        <form action="/predict" method="POST" enctype="multipart/form-data" class="upload-box">
+
+            <h2>Upload Food Image</h2>
+            <input type="file" name="image" required>
+
+            <p class="upload-warning">⚠ Upload only images from the class list.</p>
+
+            <h2>Select Model</h2>
+
+            <!-- NEW MODEL BOX DESIGN -->
+            <div class="model-box">
+
+                <label class="model-option">
+                    <input type="radio" name="model_family" value="cnn" required>
+                    <span style="font-size: 20px; font-weight: 500;"> CNN Model</span>
+                </label>
+
+                <label class="model-option">
+                    <input type="radio" name="model_family" value="vgg16">
+                    <span style="font-size: 20px; font-weight: 500;"> VGG16 Model</span>
+                </label>
+
+                <label class="model-option">
+                    <input type="radio" name="model_family" value="resnet50">
+                    <span style="font-size: 20px; font-weight: 500;"> ResNet50 Model</span>
+                </label>
+
+            </div>
+
+            <button class="predict-btn" type="submit">🔍 Predict</button>
+        </form>
+
+    </div>
+
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+        {% if predicted_label %}
+        <h2 class="result-title">Prediction Result</h2>
+
+        <h3>Predicted Food:</h3>
+        <p><b>{{ predicted_label }}</b></p>
+
+        <h3>Model Used:</h3>
+        <p>{{ model_used }}</p>
+
+        <h3>Confidence:</h3>
+        <p>{{ confidence }}</p>
+
+        <h3>Performance:</h3>
+        <pre>{{ performance | tojson(indent=2) }}</pre>
+
+        <h3>Confusion Matrix (Predicted Class)</h3>
+        <ul>
+            <li><strong>True Positive (TP):</strong> {{ class_metrics["TP"] }}</li>
+            <li><strong>True Negative (TN):</strong> {{ class_metrics["TN"]}}</li>
+            <li><strong>False Positive (FP):</strong> {{ class_metrics["FP"]}}</li>
+            <li><strong>False Negative (FN):</strong> {{ class_metrics["FN"]}}</li>
+        </ul>
+
+        <h3>Nutrition Facts:</h3>
+        <pre>{{ nutrition | tojson(indent=2) }}</pre>
+
+        <h3>Uploaded Image:</h3>
+        <img class="result-img" src="/{{ image_path }}" width="260">
+
+        <form action="/" method="GET">
+            <button class="go-back">⬅ Go Back</button>
+        </form>
+
+        {% else %}
+        <h2 class="result-title">Results will appear here</h2>
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

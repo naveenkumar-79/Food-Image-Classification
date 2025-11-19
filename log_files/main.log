@@ -1,0 +1,13 @@
+2025-11-19 12:52:09,600 - INFO - Loaded 34 classes from dataset folder.
+2025-11-19 12:53:03,892 - INFO - Saved upload to static\uploads\20251119125303_010.jpg
+2025-11-19 12:53:03,896 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder1.h5
+2025-11-19 12:53:13,378 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder10.h5
+2025-11-19 12:53:15,369 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder11.h5
+2025-11-19 12:53:17,725 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder2.h5
+2025-11-19 12:53:19,649 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder3.h5
+2025-11-19 12:53:21,597 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder4.h5
+2025-11-19 12:53:23,371 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder5.h5
+2025-11-19 12:53:25,190 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder6.h5
+2025-11-19 12:53:26,568 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder7.h5
+2025-11-19 12:53:27,881 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder8.h5
+2025-11-19 12:53:29,399 - INFO - Predicting using model: D:\Food classification project\Trained_models\vgg16_folder9.h5
