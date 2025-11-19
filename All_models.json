@@ -1,0 +1,268 @@
+{
+    "all_models": [
+        {
+            "name": "cnn_folder1.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder10.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder11.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder2.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder3.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder4.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder5.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder6.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder7.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder8.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "cnn_folder9.h5",
+            "input_shape": [
+                256,
+                256,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder1.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder10.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder11.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder2.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder3.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder4.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder5.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder6.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder7.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder8.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "resnet_folder9.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder1.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder10.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder11.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder2.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder3.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder4.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder5.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder6.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder7.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder8.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        },
+        {
+            "name": "vgg16_folder9.h5",
+            "input_shape": [
+                128,
+                128,
+                3
+            ]
+        }
+    ]
+}
