@@ -217,6 +217,6 @@ Open-source Deep Learning Community
 .	Calorie & Nutrition Estimation: Extend the system to automatically calculate calories and nutritional values of recognized foods using a nutrition database.
 .	Multi-label Classification: Allow the system to identify multiple food items present in the same image.
 .	Mobile & Edge Deployment: Convert the model to TensorFlow Lite or ONNX for mobile apps or edge devices like Raspberry Pi.
-.	 User Personalization: Allow users to track their eating habits, save predictions, and build personalized food logs.
-.	 Dataset Expansion: Add more food categories, especially regional or multi-country cuisines, to improve robustness and generalization.
-. Build a web UI (Flask) for predictions
+.	User Personalization: Allow users to track their eating habits, save predictions, and build personalized food logs.
+.	Dataset Expansion: Add more food categories, especially regional or multi-country cuisines, to improve robustness and generalization.
+.   Build a web UI (Flask) for predictions
