@@ -1,12 +1,11 @@
 🍽️ Food Image Classification Using Deep Learning (CNN, VGG16, ResNet50)
 
-A complete end-to-end Deep Learning project that classifies food images into predefined categories.
-This system enables automated food recognition, which can be used for restaurant menu digitization, calorie estimation, diet monitoring apps, and more.
+A complete end-to-end Deep Learning project that classifies food images into predefined categories. This system enables automated food recognition for restaurant menu digitization, calorie estimation, health tracking, and diet monitoring apps.
 
 🧠 Project Overview
 
-Food image classification is a challenging computer vision problem due to variations in lighting, presentation style, and dish similarities.
-This project uses multiple deep learning models — Custom CNN, VGG16, and ResNet50 — to identify food categories with high accuracy.
+Food image classification is a challenging computer vision task due to variations in lighting, presentation styles, and similarity among dishes.
+This project uses multiple deep learning models — Custom CNN, VGG16, and ResNet50 — to classify food images with high accuracy.
 
 The pipeline automates:
 
@@ -16,10 +15,12 @@ The pipeline automates:
 ✔ Performance JSON creation
 ✔ Multiple model benchmarking
 
-🚀 Goal:
+🚀 Goal
 
 Classify food images into their respective classes
+
 📈 Best Model: VGG16
+
 🎯 Best F1-Score: Varies depending on dataset
 
 🧩 Architecture
@@ -43,19 +44,22 @@ Utilities	NumPy, Pandas, JSON
 Deployment Ready	Flask, Gunicorn
 🗃 Dataset Description
 
-Source: https://www.kaggle.com/datasets/harishkumardatalab/food-image-classification-dataset
+Source:
+https://www.kaggle.com/datasets/harishkumardatalab/food-image-classification-dataset
 
 Folder structure:
-
 Food Classification dataset/
-    ├── Baked potato/
-    ├── samosa/
-    ├── Taco/
-    ├── pizza/
-    └── ... more classes
+├── Baked potato/
+├── samosa/
+├── Taco/
+├── pizza/
+└── ... more classes
+
 
 Total Classes: Dynamically detected
-Each image belongs to exactly one food category.
+
+Each image belongs to exactly one food category
+
 📊 Data Preprocessing Steps
 
 Automatic class detection
@@ -82,7 +86,7 @@ You trained and evaluated multiple .h5 models automatically:
 ✔ VGG16 (Pre-trained on ImageNet)
 ✔ ResNet50
 
-Each model's:
+For each model, the following are saved:
 
 Input shape
 
@@ -92,20 +96,16 @@ Recall
 
 F1-score
 
-…are saved into individual JSON files.
+Performance JSON file
 
 🧾 Model Evaluation
-
-Metrics for every model stored as JSON:
-
+Metrics stored for every model:
 Metric	Description
 Precision	Macro averaged precision
 Recall	Macro averaged recall
 F1-Score	Macro F1-score
 Input Shape	Dynamic model input
-
-Example JSON:
-
+Example JSON output:
 {
   "input_shape": [224, 224, 3],
   "precision": 0.89,
@@ -124,22 +124,22 @@ Generates random nutritional values for each food item.
 
 3️⃣ Dataset Splitting
 
-Creates:
+Creates the following structure:
 
 food_data_splitting/
-    ├── training_data/
-    ├── validation_data/
-    └── testing_data/
+├── training_data/
+├── validation_data/
+└── testing_data/
 
 4️⃣ Model JSON Generation
 
-Extracts input shapes of all .h5 models from:
+Detects input shapes of all .h5 models in:
 
 Trained_models/
 
 5️⃣ Performance Evaluation
 
-Evaluates each model with:
+For each model, generates:
 
 Precision
 
@@ -149,13 +149,13 @@ F1-score
 
 Confusion matrix
 
-Results stored in:
+Saved in:
 
 model_performance/
 
 🧩 Project Structure
 ├── main.py
-├── app.py (if used for deployment)
+├── app.py (optional for UI)
 ├── Food Classification dataset/
 ├── food_data_splitting/
 │   ├── training_data/
@@ -173,26 +173,26 @@ model_performance/
 During evaluation:
 
 🔹 VGG16 performs the best
-🔹 ResNet50 gives stable results
+🔹 ResNet50 delivers stable results
 🔹 Custom CNN performs well on simpler classes
 🔹 Larger input sizes increase accuracy but require more memory
-🔹 F1-Score is the best metric for comparing models with class imbalance
+🔹 F1-score is the best comparison metric for imbalanced data
 
 ⚙ Installation & Usage
-# Clone the repository
+Clone the repository
 git clone https://github.com/username/food-image-classification.git
 cd food-image-classification
 
-# Create virtual environment
+Create virtual environment
 python -m venv venv
-venv\Scripts\activate   # Windows
+venv\Scripts\activate    # Windows
 # OR
 source venv/bin/activate  # Mac/Linux
 
-# Install dependencies
+Install dependencies
 pip install -r requirements.txt
 
-# Run the main pipeline
+Run the main pipeline
 python main.py
 
 🧑‍💻 Author
@@ -213,10 +213,17 @@ Vihara Tech (Guidance)
 Open-source Deep Learning Community
 
 🧭 Future Enhancements
-.	Real-time Food Detection: Integrate the model with a live camera feed to identify food items instantly in real-time environments.
-.	Calorie & Nutrition Estimation: Extend the system to automatically calculate calories and nutritional values of recognized foods using a nutrition database.
-.	Multi-label Classification: Allow the system to identify multiple food items present in the same image.
-.	Mobile & Edge Deployment: Convert the model to TensorFlow Lite or ONNX for mobile apps or edge devices like Raspberry Pi.
-.	User Personalization: Allow users to track their eating habits, save predictions, and build personalized food logs.
-.	Dataset Expansion: Add more food categories, especially regional or multi-country cuisines, to improve robustness and generalization.
-.   Build a web UI (Flask) for predictions
+
+Real-time Food Detection: Live camera food recognition
+
+Calorie & Nutrition Estimation: Automatic calorie prediction
+
+Multi-label Classification: Detect multiple items in a single image
+
+Mobile & Edge Deployment: Convert to TensorFlow Lite / ONNX
+
+User Personalization: Food tracking and analytics
+
+Dataset Expansion: Add more global cuisine categories
+
+Web UI: Build a fully interactive Flask interface
