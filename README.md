@@ -214,16 +214,16 @@ Open-source Deep Learning Community
 
 🧭 Future Enhancements
 
-Real-time Food Detection: Live camera food recognition
+. Real-time Food Detection: Live camera food recognition
 
-Calorie & Nutrition Estimation: Automatic calorie prediction
+. Calorie & Nutrition Estimation: Automatic calorie prediction
 
-Multi-label Classification: Detect multiple items in a single image
+. Multi-label Classification: Detect multiple items in a single image
 
-Mobile & Edge Deployment: Convert to TensorFlow Lite / ONNX
+. Mobile & Edge Deployment: Convert to TensorFlow Lite / ONNX
 
-User Personalization: Food tracking and analytics
+. User Personalization: Food tracking and analytics
 
-Dataset Expansion: Add more global cuisine categories
+. Dataset Expansion: Add more global cuisine categories
 
-Web UI: Build a fully interactive Flask interface
+. Web UI: Build a fully interactive Flask interface
