@@ -1,53 +1,59 @@
-🍽️ Food Image Classification Using Deep Learning (CNN, VGG16, ResNet50)
+🍽️ Food Image Classification Using Deep Learning
 
-A complete end-to-end Deep Learning project that classifies food images into predefined categories. This system enables automated food recognition for restaurant menu digitization, calorie estimation, health tracking, and diet monitoring apps.
+CNN | VGG16 | ResNet50 | Flask Deployment
+
+A complete end-to-end Food Image Recognition System built using Deep Learning.
+This project classifies food images into labeled categories using multiple models, auto-generates nutrition data, evaluates models with performance metrics, and prepares the system for deployment.
 
 🧠 Project Overview
 
-Food image classification is a challenging computer vision task due to variations in lighting, presentation styles, and similarity among dishes.
-This project uses multiple deep learning models — Custom CNN, VGG16, and ResNet50 — to classify food images with high accuracy.
+Food recognition from images is a challenging task due to variations in lighting, angle, presentation, and similarity across food categories.
+This system automates the entire process—dataset management, model evaluation, metric generation, and deployment-ready outputs.
 
-The pipeline automates:
+The pipeline includes:
 
-✔ Dataset splitting
+✔ Automated dataset splitting
 ✔ Nutrition metadata generation
-✔ Dynamic model evaluation (Precision, Recall, F1-score)
-✔ Performance JSON creation
-✔ Multiple model benchmarking
+✔ Multiple model evaluation (CNN, VGG16, ResNet50)
+✔ Precision, Recall, F1-score, Confusion Matrix
+✔ Best-model detection
+✔ Model performance JSON logs
+✔ Flask-ready prediction API
 
 🚀 Goal
 
-Classify food images into their respective classes
+Classify food images into predefined categories with high accuracy and support downstream tasks like calorie estimation and restaurant digitization.
 
-📈 Best Model: VGG16
+🏆 Best Performing Model
 
-🎯 Best F1-Score: Varies depending on dataset
+VGG16 delivered the highest F1-score in most experiments.
 
-🧩 Architecture
+🧩 System Architecture
 graph TD
-A[Dataset Loading] --> B[Class Extraction]
-B --> C[JSON Nutrition Generation]
-C --> D[Data Splitting - Train/Val/Test]
-D --> E[Model Detection - Input Shape Extraction]
-E --> F[Prediction & Evaluation]
-F --> G[Performance Metrics JSON]
-G --> H[Model Comparison & Reporting]
+A[📁 Dataset Loading] --> B[🔍 Class Extraction]
+B --> C[🥗 Nutrition JSON Generation]
+C --> D[🔀 Train/Val/Test Split]
+D --> E[🧠 Model Input Shape Detection]
+E --> F[🎯 Prediction & Evaluation]
+F --> G[📊 Performance Metrics JSON]
+G --> H[🏆 Best Model Comparison & Reporting]
 
-🧰 Tech Stack & Libraries
+🧰 Tech Stack
 Category	Tools / Libraries
 Language	Python 3
-Deep Learning	TensorFlow / Keras
-Models Used	CNN, VGG16, ResNet50
-ML Metrics	Accuracy, Precision, Recall, F1-Score
-Visualization	Matplotlib
+Framework	TensorFlow / Keras
+Deep Learning Models	Custom CNN, VGG16, ResNet50
+Metrics	Accuracy, Precision, Recall, F1-Score
+Deployment	Flask, Gunicorn
 Utilities	NumPy, Pandas, JSON
-Deployment Ready	Flask, Gunicorn
-🗃 Dataset Description
+Visualization	Matplotlib
+🗃 Dataset
 
 Source:
 https://www.kaggle.com/datasets/harishkumardatalab/food-image-classification-dataset
 
 Folder structure:
+
 Food Classification dataset/
 ├── Baked potato/
 ├── samosa/
@@ -56,37 +62,45 @@ Food Classification dataset/
 └── ... more classes
 
 
-Total Classes: Dynamically detected
+✔ Total classes: Dynamically detected
+✔ Each class = one food category
+✔ Dataset automatically split into train/val/test
 
-Each image belongs to exactly one food category
+📊 Data Preprocessing
 
-📊 Data Preprocessing Steps
+The pipeline automatically performs:
 
-Automatic class detection
+Class extraction
 
-Train/Validation/Test Split
+Train/Val/Test split (70/15/15)
 
-70% Training
+Rescaling (1/255)
 
-15% Validation
+Adaptive image resizing based on model input shape
 
-15% Testing
+Nutrition JSON creation for each class
 
-Image Rescaling: 1/255
+Test set predictions
 
-Dynamic resizing based on model input shape
+Confusion matrix generation
 
-Model predictions on test set
+🧠 Deep Learning Models
 
-🧮 Models Used
-
-You trained and evaluated multiple .h5 models automatically:
+You trained and evaluated multiple .h5 models:
 
 ✔ Custom CNN
-✔ VGG16 (Pre-trained on ImageNet)
+
+Lightweight model for faster inference
+
+✔ VGG16
+
+Best performance in most evaluations
+
 ✔ ResNet50
 
-For each model, the following are saved:
+Stable and deep model for complex class boundaries
+
+Each model logs:
 
 Input shape
 
@@ -96,16 +110,12 @@ Recall
 
 F1-score
 
-Performance JSON file
+Confusion matrix
 
-🧾 Model Evaluation
-Metrics stored for every model:
-Metric	Description
-Precision	Macro averaged precision
-Recall	Macro averaged recall
-F1-Score	Macro F1-score
-Input Shape	Dynamic model input
-Example JSON output:
+JSON performance file
+
+Example:
+
 {
   "input_shape": [224, 224, 3],
   "precision": 0.89,
@@ -113,49 +123,9 @@ Example JSON output:
   "f1_score": 0.88
 }
 
-💻 Core Functionalities (from main.py)
-1️⃣ Class Extraction
-
-Scans dataset folders and identifies food classes.
-
-2️⃣ Nutrition JSON Creation
-
-Generates random nutritional values for each food item.
-
-3️⃣ Dataset Splitting
-
-Creates the following structure:
-
-food_data_splitting/
-├── training_data/
-├── validation_data/
-└── testing_data/
-
-4️⃣ Model JSON Generation
-
-Detects input shapes of all .h5 models in:
-
-Trained_models/
-
-5️⃣ Performance Evaluation
-
-For each model, generates:
-
-Precision
-
-Recall
-
-F1-score
-
-Confusion matrix
-
-Saved in:
-
-model_performance/
-
 🧩 Project Structure
 ├── main.py
-├── app.py (optional for UI)
+├── app.py                  # Flask API (optional)
 ├── Food Classification dataset/
 ├── food_data_splitting/
 │   ├── training_data/
@@ -168,36 +138,43 @@ model_performance/
 ├── requirements.txt
 └── README.md
 
-📈 Visual Insights
+📈 Evaluation Results
 
-During evaluation:
+🔹 VGG16 – Best F1 Score
+🔹 ResNet50 – Strong and consistent
+🔹 Custom CNN – Lightweight, fast, good for simple datasets
 
-🔹 VGG16 performs the best
-🔹 ResNet50 delivers stable results
-🔹 Custom CNN performs well on simpler classes
-🔹 Larger input sizes increase accuracy but require more memory
-🔹 F1-score is the best comparison metric for imbalanced data
+Observations:
+
+Larger input image sizes → Higher accuracy
+
+F1-score provides the best comparison for imbalanced classes
+
+Pretrained models outperform custom CNN
 
 ⚙ Installation & Usage
-Clone the repository
+1️⃣ Clone the repository
 git clone https://github.com/username/food-image-classification.git
 cd food-image-classification
 
-Create virtual environment
+2️⃣ Create virtual environment
 python -m venv venv
-venv\Scripts\activate    # Windows
+venv\Scripts\activate       # Windows
 # OR
-source venv/bin/activate  # Mac/Linux
+source venv/bin/activate   # macOS/Linux
 
-Install dependencies
+3️⃣ Install dependencies
 pip install -r requirements.txt
 
-Run the main pipeline
+4️⃣ Run the full pipeline
 python main.py
 
-🧑‍💻 Author
+Optional: Run Flask app
+python app.py
 
-👨‍🎓 P. Naveen Kumar
+🧑‍🎓 Author
+
+P. Naveen Kumar
 📧 Email: puppalanaveenkumar11@gmail.com
 
 🌟 Acknowledgements
@@ -210,20 +187,26 @@ Matplotlib
 
 Vihara Tech (Guidance)
 
-Open-source Deep Learning Community
+Open-source AI Community
 
 🧭 Future Enhancements
 
-. Real-time Food Detection: Live camera food recognition
+📸 Real-time food detection (camera input)
 
-. Calorie & Nutrition Estimation: Automatic calorie prediction
+🔢 Calorie & nutrition estimation
 
-. Multi-label Classification: Detect multiple items in a single image
+🍱 Multi-label classification for meals
 
-. Mobile & Edge Deployment: Convert to TensorFlow Lite / ONNX
+📱 Mobile deployment using TensorFlow Lite / ONNX
 
-. User Personalization: Food tracking and analytics
+👤 User-based food tracking analytics
 
-. Dataset Expansion: Add more global cuisine categories
+🍜 Dataset expansion with global cuisines
 
-. Web UI: Build a fully interactive Flask interface
+🌐 Complete web UI for interactive predictions
+
+If you'd like, I can also:
+✅ Generate a project logo/banner
+✅ Create a requirements.txt
+✅ Build a GitHub Pages portfolio site
+✅ Add badges (build, license, stars, datasets)
